@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+
+<VBox xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+    <MenuBar>
+        <Menu text="Room">
+            <items>
+                <MenuItem text="Get Room Number" onAction="#getRoomNumber"/>
+                <MenuItem text="Exit From Room" onAction="#exitRoom"/>
+            </items>
+        </Menu>
+        <Menu fx:id="fileMenu" text="File">
+            <items>
+                <MenuItem text="New" onAction="#createNewFile"/>
+                <MenuItem text="Open" onAction="#openFile"/>
+                <MenuItem text="Save" onAction="#saveFile"/>
+                <!-- <MenuItem text="SaveAs" onAction="#saveFileAs"/> -->
+            </items>
+        </Menu>
+    </MenuBar>
+
+    <VBox>
+        <ToolBar>
+            <Button text="cursor" onAction="#setCursor"/>
+            <Button text="line" onAction="#setLine" />
+            <Button text="circle" onAction="#setCircle" />
+            <Button text="oval" onAction="#setOval" />
+            <Button text="rectangle" onAction="#setRectangle" />
+            <Button text="text" onAction="#setText" />
+            <ComboBox fx:id="comboBox"/>
+        </ToolBar>
+        <HBox>
+            <VBox fx:id="userBox">
+                <Label text="Users">
+                    <font>
+                        <Font name="System Bold" size="15.0"/>
+                    </font>
+                </Label>
+                <ListView fx:id="userList" VBox.vgrow="ALWAYS"/>
+            </VBox>
+            <Canvas fx:id="canvas" height="600.0" width="600" />
+            <VBox fx:id="chatBox">
+                <ListView fx:id="messageList" VBox.vgrow="ALWAYS"/>
+                <TextField fx:id="messageInput" onKeyPressed="#onEnter"/>
+            </VBox>
+        </HBox>
+    </VBox>
+</VBox>
